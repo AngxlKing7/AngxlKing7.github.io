@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speed3xz - Comandos</title>
+
+    <meta name="description"
+        content="Ayrton-Bot - Lista y descripcion de todos los comandos disponibles para el bot." />
+    <meta name="keywords"
+        content="Ayrton-Bot, comandos, whatsapp, bot, speed3xzAyrton, gacha, economy, download, nekos club, whatsapp bot, commands" />
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="speed3xz" />
+    <meta name="theme-color" content="#131316">
+
+    <meta property="og:title" content="Ayrton-Bot | Comandos" />
+    <meta property="og:description"
+        content="Ayrton-Bot - Lista y descripcion de todos los comandos disponibles para el bot." />
+    <meta property="og:image" content="https://files.catbox.moe/b6s59y.jpg">
+    <meta property="og:url" content="https://ayrton.bot.nu/commands" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ayrton-Bot" />
+    <meta property="og:locale" content="es_ES">
+
+
+    <link rel="icon" type="image/png" content="https://files.catbox.moe/wui0z5.jpg" sizes="96x96" />
+    <link rel="icon" type="image/png" content="https://files.catbox.moe/wui0z5.jpg" sizes="192x192" />
+    <link rel="icon" type="image/svg+xml" content="https://files.catbox.moe/wui0z5.jpg" />
+    <link rel="shortcut icon" content="https://files.catbox.moe/wui0z5.jpg" />
+    <!-- <link rel="manifest" href="/site.webmanifest" /> -->
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #0e0e11;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #131316;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px #000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-left img {
+            border-radius: 50%;
+            width: 45px;
+            height: auto;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right img {
+            border: none;
+            width: 40px;
+            height: auto;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            min-width: 180px;
+            background-color: #1c1c1f;
+            border-radius: 8px;
+            padding: 1rem;
+            align-self: flex-start;
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            background: none;
+            color: white;
+            border: none;
+            text-align: left;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .sidebar button.active,
+        .sidebar button:hover {
+            background-color: #b33659;
+            border-radius: 4px;
+        }
+
+        .commands {
+            flex-grow: 1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            text-align: left;
+            color: #ccc;
+        }
+
+        td.command {
+            color: #56c2b3;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                display: flex;
+                overflow-x: auto;
+                align-self: inherit;
+            }
+
+            .sidebar button {
+                white-space: nowrap;
+                margin-right: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://files.catbox.moe/87c2il.jpg" alt="Logo" />
+
+            <h1 id="title-header">
+                <span aria-label="Nombre del sitio">Ayrton-Bot</span>
+                <span id="title-cat" style="color: gray; font-size: 1rem;"></span>
+            </h1>
+        </div>
+        <div class="header-right">
+            <a href="index.html" target="_self" style="text-decoration: none;">
+                <img src="favicon/channel-256x256.png" alt="Canal" />
+            </a>
+        </div>
+
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="onCategorySelect('gacha')" class="active">Gacha</button>
+            <button onclick="onCategorySelect('economy')">Economia</button>
+            <button onclick="onCategorySelect('download')">Descarga</button>
+            <button onclick="onCategorySelect('profile')">Perfil</button>
+            <button onclick="onCategorySelect('script')">Sub-bots</button>
+            <button onclick="onCategorySelect('utils')">Utils</button>
+            <button onclick="onCategorySelect('admin')">Administracion</button>
+            <button onclick="onCategorySelect('anime')">Reacciones</button>
+            <button onclick="onCategorySelect('nsfw')">NSFW</button>
+        </div>
+
+        <div class="commands" id="commands">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Comando</th>
+                        <th>Descripcion</th>
+                        <th>Uso</th>
+                    </tr>
+                </thead>
+                <tbody id="command-list">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/commands.js"></script>
+    <script src="commands/index.js"></script>
+
+</body>
+
+</html>
